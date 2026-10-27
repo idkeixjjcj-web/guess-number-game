@@ -1,0 +1,73 @@
+HTML
+
+<link rel="manifest" href="./manifest.json">
+
+<hesd></hesd>
+HTML
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>猜数字游戏</title>
+  <link rel="manifest" href="./manifest.json">
+</head>
+<body>
+  <h1>🎮 猜数字游戏</h1>
+  <p>猜一个 1 到 100 之间的数字！</p >
+
+  <input id="guess" type="number" min="1" max="100">
+  <button onclick="checkGuess()">猜一猜</button>
+  <button onclick="location.reload()">重新开始</button>
+  <p id="message">准备好了吗？</p >
+
+  <script>
+    const answer = Math.floor(Math.random() * 100) + 1;
+
+    function checkGuess() {
+      const guess = Number(document.getElementById("guess").value);
+      const message = document.getElementById("message");
+
+      if (guess < 1 || guess > 100) {
+        message.textContent = "请输入 1 到 100 之间的数字。";
+      } else if (guess < answer) {
+        message.textContent = "太小了，再试一次！";
+      } else if (guess > answer) {
+        message.textContent = "太大了，再试一次！";
+      } else {
+        message.textContent = "🎉 恭喜你，猜对了！";
+      }
+    }
+  </script>
+  <script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./service-worker.js")
+        .catch((error) => console.error("Service Worker 注册失败:", error));
+    });
+  }
+</script>
+
+}
+</style>
+<style>
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: white;
+  padding-top: 50px;
+}
+</style><script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("./service-worker.js");
+    });
+  }
+</script>
+
+</body>
+</html>

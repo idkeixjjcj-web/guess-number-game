@@ -1,0 +1,12 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+JSON
+
+{
+  "name": "猜数字游戏",
+  "short_name": "猜数字",
+  "description": "一个可以在手机和电脑上玩的猜数字游戏",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb"
+}
